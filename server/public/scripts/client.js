@@ -7,8 +7,8 @@ myApp.config(function ($routeProvider, $locationProvider) {
     
     $routeProvider
         .when('/home', {
-            templateUrl: '/views/templates/home.html',
-            controller: 'LoginController as lc',
+            templateUrl: '/views/home.html',
+            controller: 'HomeController as hc',
         })
         .otherwise({
             redirectTo: 'home'
