@@ -10,6 +10,10 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/views/home.html',
             controller: 'HomeController as hc',
         })
+        .when('/admin', {
+            templateUrl: '/views/adminHome.html',
+            controller: 'AdminController as ac',
+        })
         .otherwise({
             redirectTo: 'home'
         });
