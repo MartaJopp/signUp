@@ -1,9 +1,9 @@
+<input type="text" ng-model="ac.makeClass.name">
 
 
-
-<input type="text" ng-model="ac.makeClass.name">Class Name</input> 
+Class Name</input>
 <br>
-<input type="text" ng-model="ac.makeClass.day">Class Day</input> 
+<input type="text" ng-model="ac.makeClass.day">Class Day</input>
 <br>
 <input type="text" ng-model="ac.makeClass.time">Class Time</input>
 <br>
@@ -21,6 +21,7 @@
 
 
 
-
-
-
+<div layout="row" ng-repeat="class in ac.listOfClasses track by $index">
+    <input type="checkbox" checklist-value="class.id" checklist-model="ac.instructors.classesTaught">{{class}}</md-checkbox>
+    <span flex></span>
+</div>
