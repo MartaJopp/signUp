@@ -23,8 +23,10 @@ Class Name</input>
 <h4>Add Instructor</h4>
 <input type="text" ng-model="ac.instructor.firstName">First Name</input>
 <input type="text" ng-model="ac.instructor.lastName">Last Name</input>
+<input type="text" ng-model="ac.instructor.goesBy">Goes By</input>
 Classes Instructor Teaches:
 <div layout="row" ng-repeat="class in ac.listOfClasses track by $index">
-    <input type="checkbox" checklist-value="class" checklist-model="ac.instructor.classesTaught">{{class}}</md-checkbox>
+    <input type="checkbox" checklist-value="class.id" checklist-model="ac.classes">{{class.class}}</md-checkbox>
     <span flex></span>
 </div>
+<button ng-click="ac.addInstructor(ac.instructor, ac.classes)" type="button">Add Instructor</button>
