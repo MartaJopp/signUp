@@ -20,12 +20,11 @@ myApp.service('ClassService', function ($http, $location) {
     }
 
 //add new instructor
-self.addInstructor = function (instructor, classes) {
+self.addInstructor = function (instructor) {
+    self.newInstructor = instructor
+    console.log(self.newInstructor)
     
-    // console.log('instructor', classes)
-    // classes = self.newInstructor.classesTaught
-    // self.newInstructor.classesTaught = classes;
-    // console.log('self.newInstructor.classesTaught', self.newInstructor.classesTaught)
+    
 } //end add new instructor
 
 

@@ -11,17 +11,12 @@ myApp.controller('AdminController', function ($scope, HomeService, ClassService)
 
 //sets up a new class
     vm.makeNewClass = function (newClass) {
-        console.log('clicked')
         ClassService.makeNewClass(newClass)
     } //end make new class
 
-vm.addInstructor = function (instructor, classesTaught) {
-    console.log('add instructor clicked', instructor, classesTaught)
+//sets up a new instructor    
+vm.addInstructor = function (instructor) {
     ClassService.addInstructor(instructor)
-}
-
-vm.checkmark = function (x) {
-    console.log(x)
 }
 
 }) // end Admin controller
