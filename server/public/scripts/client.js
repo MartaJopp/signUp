@@ -1,5 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
-// myApp.constant('moment', moment);
+var myApp = angular.module('myApp', ['ngRoute', 'checklist-model']);
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
