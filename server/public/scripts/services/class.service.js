@@ -19,13 +19,16 @@ myApp.service('ClassService', function ($http, $location) {
         })
     }
 
-//add new instructor
-self.addInstructor = function (instructor) {
-    self.newInstructor = instructor
-    console.log(self.newInstructor)
-    
-    
-} //end add new instructor
+    //add new instructor
+    self.addInstructor = function (instructor) {
+        self.newInstructor = instructor
+        console.log(self.newInstructor)
 
+    } //end add new instructor
+
+    self.addEvent = function (event) {
+        self.newEvent = event
+        console.log(self.newEvent);
+    }
 
 }) //end service

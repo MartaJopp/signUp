@@ -23,8 +23,31 @@
 <input type="text" ng-model="ac.instructor.firstName">First Name</input>
 <input type="text" ng-model="ac.instructor.lastName">Last Name</input>
 <input type="text" ng-model="ac.instructor.goesBy">Goes By</input>
+<br>
 Classes Instructor Teaches:
 <label ng-repeat="class in ac.listOfClasses">
     <input type="checkbox" checklist-model="ac.instructor.classesTaught" checklist-value="class"> {{class.class}}
 </label>
 <button ng-click="ac.addInstructor(ac.instructor)" type="button">Add Instructor</button>
+
+
+<h4>Add Event</h4>
+<input type="text" ng-model="ac.newEvent.eventName">Event Name</input>
+<br>
+<input type="text" ng-model="ac.newEvent.eventType">Event Type</input>
+<br>
+<input type="text" ng-model="ac.newEvent.date">Event Date</input>
+<br>
+<input type="text" ng-model="ac.newEvent.startTime">Event Time</input>
+<br>
+<input type="text" ng-model="ac.newEvent.length">Event Length</input>
+<br>
+<input type="text" ng-model="ac.newEvent.price">Event Price</input>
+<br>
+<input type="text" ng-model="ac.newEvent.maxSpots">Spots Available</input>
+<br>
+<button ng-click="ac.addEvent(ac.newEvent)" type="button">Add Event</button>
+
+
+
+

@@ -19,4 +19,8 @@ vm.addInstructor = function (instructor) {
     ClassService.addInstructor(instructor)
 }
 
+    vm.addEvent = function (event) {
+        ClassService.addEvent(event)
+    }
+
 }) // end Admin controller
