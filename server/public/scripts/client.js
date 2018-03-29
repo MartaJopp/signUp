@@ -1,9 +1,10 @@
 var myApp = angular.module('myApp', ['ngRoute', 'checklist-model']);
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider) {
+
     $locationProvider.hashPrefix('');
     console.log('myApp -- config')
-    
+
     $routeProvider
         .when('/home', {
             templateUrl: '/views/home.html',
