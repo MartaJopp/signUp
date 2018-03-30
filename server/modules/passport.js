@@ -6,8 +6,9 @@ var config = require('./config.js'),
     Model = require('./model.js'),
     bcrypt = require('bcrypt-nodejs'),
     User = Model.User;
-var CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-var CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+
+/* dotenv fetches credentials stored in .env file*/
+require('dotenv').config();
 
 
 module.exports = function (passport) {
@@ -37,76 +38,8 @@ module.exports = function (passport) {
         });
     }));
 
-    // passport.use(new FacebookStrategy({
-    //     clientID: config.facebookAuth.clientID,
-    //     clientSecret: config.facebookAuth.clientSecret,
-    //     callbackURL: config.facebookAuth.callbackURL
-    // }, function (token, refreshToken, profile, done) {
-    //     console.log(profile);
-    //     process.nextTick(function () {
-    //         new Model.Facebook({ facebook_id: profile.id }).fetch().then(function (fbUser) {
-    //             if (fbUser) {
-    //                 // TODO: Handle case where there IS user, but no facebook user
-    //                 return done(null, fbUser);
-    //             } else {
-    //                 // If there is no user found, then create one
-    //                 new User().save().then(function (user) {
-    //                     var newUserId = user.toJSON().id;
-
-    //                     var newFBUser = {
-    //                         id: newUserId,
-    //                         token: token,
-    //                         facebook_id: profile.id,
-    //                         email: profile.emails[0].value,
-    //                         name: profile.name.givenName + ' ' + profile.name.familyName
-    //                     };
-
-    //                     // Create new Facebook user with token.
-    //                     new Model.Facebook(newFBUser).save({}, { method: 'insert' }).then(function (facebook) {
-    //                         return done(null, newFBUser);
-    //                     });
-    //                 });
-    //             }
-    //         });
-    //     });
-    // }));
-
-    // passport.use(new TwitterStrategy({
-    //     consumerKey: config.twitterAuth.consumerKey,
-    //     consumerSecret: config.twitterAuth.consumerSecret,
-    //     callbackURL: config.twitterAuth.callbackURL
-    // }, function (token, tokenSecret, profile, done) {
-    //     process.nextTick(function () {
-    //         new Model.Twitter({ twitter_id: profile.id }).fetch().then(function (twUser) {
-    //             if (twUser) {
-    //                 return done(null, twUser);
-    //             } else {
-    //                 // Twitter user not found. Create a new one.
-    //                 new User().save().then(function (user) {
-    //                     var newUserId = user.toJSON().id;
-
-    //                     var newTWUser = {
-    //                         id: newUserId,
-    //                         token: token,
-    //                         twitter_id: profile.id,
-    //                         username: profile.username,
-    //                         display_name: profile.displayName
-    //                     };
-
-    //                     // Create new Facebook user with token.
-    //                     new Model.Twitter(newTWUser).save({}, { method: 'insert' }).then(function (newlyMadeTWUser) {
-    //                         return done(null, newTWUser);
-    //                     });
-    //                 });
-    //             }
-    //         });
-    //     });
-    // }));
-
-    
-
     passport.use(new GoogleStrategy({
-        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientID: config.googleAuth.clientID,
         clientSecret: config.googleAuth.clientSecret,
         callbackURL: config.googleAuth.callbackURL
     }, function (token, refreshToken, profile, done) {
